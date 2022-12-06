@@ -1,7 +1,7 @@
 shipping-api:
   image: thimoty/shipping-api:v1
   ports:
-    - "8081:8081"
+    - "8081:8080"
   restart:
     always
 json-server:
