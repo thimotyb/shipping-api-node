@@ -1,0 +1,27 @@
+shipping-api:
+  image: thimoty/shipping-api:v1
+  ports:
+    - "8081:8081"
+  restart:
+    always
+json-server:
+  image: vimagick/json-server
+  command: -H 0.0.0.0 -p 3000 -w db.json -m /data/hello.js
+  ports:
+    - "8080:3000"
+  volumes:
+    - ./data:/data
+  restart: always
+
+db:
+     image: mysql:8.0.30
+     ports:
+       - "3306:3306"
+     volumes:
+       - ./db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: <PASSWORD>
+       MYSQL_DATABASE: training
+       MYSQL_USER: <USER>
+       MYSQL_PASSWORD: <PASSWORD>
