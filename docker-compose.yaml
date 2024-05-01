@@ -7,7 +7,7 @@ services:
     always
  json-server:
   image: vimagick/json-server
-  command: -H 0.0.0.0 -p 3000 -w db.json -m /data/hello.js
+  command: -h 0.0.0.0 -p 3000 -w db.json -s /data/hello.js
   ports:
     - "8080:3000"
   volumes:
